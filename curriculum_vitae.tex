@@ -1,0 +1,588 @@
+% CV adapted from:
+
+%
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+% Some rights reserved: http://creativecommons.org/licenses/by-sa/3.0/
+%------------------------------------
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec}
+\usepackage{libertine}
+\usepackage[english]{babel}
+
+% DOCUMENT LAYOUT
+\usepackage{geometry} 
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+\usepackage{enumitem}
+
+% FONTS
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont [Ligatures={Common}, Numbers={OldStyle}, Variant=01]{Linux Libertine O}
+%\setmonofont[Scale=0.8]{Monaco}
+
+% ---- CUSTOM COMMANDS
+\chardef\&="E050
+\newcommand{\html}[1]{\href{#1}{\scriptsize\textsc{[html]}}}
+\newcommand{\pdf}[1]{\href{#1}{\scriptsize\textsc{[pdf]}}}
+\newcommand{\doi}[1]{\href{#1}{\scriptsize\textsc{[doi]}}}
+% ---- MARGIN YEARS
+\usepackage{marginnote}
+\newcommand{\amper{}}{\chardef\amper="E0BD }
+\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
+\renewcommand*{\raggedleftmarginnote}{}
+\setlength{\marginparsep}{7pt}
+\reversemarginpar
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\mdseries\upshape\Large}
+\subsectionfont{\bfseries\scshape\normalsize} 
+\subsubsectionfont{\mdseries\upshape\large} 
+
+
+%
+%------------------------------------
+% Bibliography section adapted from:
+% https://github.com/rgeirhos/academic-cv-publications
+%------------------------------------
+
+% as bibentry and hyperref clash in some cases, this is a workaround
+% as suggested by the following two links:
+%https://tex.stackexchange.com/questions/227933/using-bibentry-to-cite-in-text-reference-with-apacite
+% and
+%https://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv/65401#65401
+
+\usepackage[notes,backend=biber,url=false]{biblatex-chicago}
+\DeclareCiteCommand{\fullcite}
+  {\usebibmacro{prenote}}
+  {\usedriver
+     {}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\usepackage{csquotes}
+\bibliography{z.bib}
+
+%\usepackage{bibentry}
+%\makeatletter\let\saved@bibitem\@bibitem\makeatother
+%\usepackage[colorlinks=true]{hyperref}
+%\makeatletter\let\@bibitem\saved@bibitem\makeatother
+
+% hanging publications: 1st line starts at beginning of line, 
+% further lines are placed a bit to the right
+\usepackage{hanging}
+\newcommand\publication[1]{%
+    \smallskip\par\hangpara{1.5em}{1}\fullcite{#1}\smallskip
+}
+
+\usepackage{parskip}
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\usepackage[unicode, bookmarks, colorlinks, breaklinks, 
+% ---- FILL IN HERE THE TITLE AND AUTHOR
+pdftitle={cv},
+    pdfauthor={Zoltan P. Majdik},
+    pdfproducer={http://nitens.org/taraborelli/cvtex}
+]{hyperref} 
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=MidnightBlue} 
+
+
+
+% DOCUMENT
+\begin{document}
+{\LARGE Zoltan P. Majdik}\\[1cm]
+ North Dakota State University\\
+Department of Communication\\
+Fargo, N.D. 58102\\
+U.S.A.\\[.2cm]
+\textsc{email:} zoltan dot majdik at ndsu dot edu\\
+\textsc{orcid:} \href{https://orcid.org/0000-0002-3851-4694}{https://orcid.org/0000-0002-3851-4694}\\
+\textsc{OSF:}
+\href{https://osf.io/5q8ya/}{https://osf.io/5q8ya/}
+
+%%\hrule
+\section*{Current position}
+
+\noindent
+\years{2023-present}Professor, Department of Communication, North Dakota State University
+
+%%\hrule
+\section*{Past positions}
+
+\noindent
+\years{2014-2023}Associate Professor, North Dakota State University\\
+\years{2008-2014}Assistant Professor, North Dakota State University\\
+\years{2003-2008}Graduate Teaching/Research Assistant, University of Southern
+California
+
+%%\hrule
+\section*{Areas of specialization}
+Computational Rhetoric • Deep Learning \& Large Language Models • Digital Humanities
+
+%\hrule
+\section*{Education}
+\noindent
+\years{2008}Ph.D. in Communication, Annenberg School for Communication
+and Journalism, University of
+Southern California \\ 
+\textsc{Dissertation:} The Gene is out of the Bottle: The Communication of Genetic
+Complexity in Direct-to-Consumer Genetics\\
+\years{2006}M.A. in Communication, Annenberg School for Communication
+and Journalism, University of
+Southern California\\
+\years{2003}B.A. in Communication and in English, University of
+Southern California
+
+
+\section*{Publications \& talks}
+
+\subsection*{\textbf{Peer-Reviewed Journal Articles}}
+
+\noindent
+\years{2022}\fullcite{majdikwynn2022}\\
+\years{2022}\fullcite{grahametal2022}\\
+\years{2022}\fullcite{grahametal2022a}\\
+\years{2022}\fullcite{grahametal2022b}\\
+\years{2021}\fullcite{grahametal2021}\\
+\years{2020}\fullcite{majdik2021}\\
+\years{2020}\fullcite{duchshereretal2020}\\
+\years{2020}\fullcite{grahametal2020}\\
+\years{2020}\fullcite{grahametal2020a}\\
+\years{2019}\fullcite{majdik2019}\\
+\years{2012}\fullcite{plattmajdik2012}\\
+\years{2012}\fullcite{majdikplatt2012}\\
+\years{2011}\fullcite{majdikkeith2011}\\
+\years{2011}\fullcite{majdikkeith2011a}\\
+\years{2011}\fullcite{majdiketal2011}\\
+\years{2011}\fullcite{majdik2011}\\
+\years{2009}\fullcite{majdik2009a}\\
+\years{2008}\fullcite{majdiketal2008}
+
+
+\subsection*{\textbf{Peer-Reviewed Chapters, Encyclopedia Entries, \& Proceedings}}
+
+\noindent
+\years{2019}\fullcite{majdik2019a}\\
+\years{2014}\fullcite{majdik2014}\\
+\years{2009}\fullcite{majdik2009}\\
+\years{2006}\fullcite{majdik2006}
+
+
+\subsection*{\textbf{Other Academic Publication Genres}}
+
+\noindent
+\years{2016}\fullcite{majdik2016}\\
+\years{2016}\fullcite{majdik2016a}\\
+\years{2012}\fullcite{majdik2012}\\
+%years{2012}\fullcite{mehtaetal2012}\\
+\years{2005}\fullcite{majdik2005}
+
+
+
+
+\subsection*{\textbf{Presentations}}
+
+\noindent
+\years{2023}Majdik, Zoltan P. "Adaptability in Rhetorical Ecologies." Paper presented at the Rhetoric Society Europe conference, T{\"u}bingen, Germany, 2023.\\
+\years{2022}Yang, Misty, and Zoltan P. Majdik. “Pathological Buyers: Algorithmic Knowing and Sense-making in the Rhetorical Ecology of Wallstreetbets.” Paper presented at the Annual Meeting of the National Communication Association, New Orleans, LA, 2022.\\
+\years{2022}Majdik, Zoltan P. Roundtable discussion contributor to “Re-Parsing Public Address: Computational Objects, Methods, and Ethics in Rhetorical Studies.” Presented at the Annual Meeting of the National Communication Association, New Orleans, LA, 2022.\\
+\years{2022}Majdik, Zoltan P. "Rhetorical Patterns of Global Health Crises." Paper presented at the ARSTM@RSA Pre-Conference, Baltimore, MD, 2022.\\
+\years{2021}Majdik, Zoltan P. "Metaphor Progression in Public Discourses about COVID-19." Paper presented at the Annual Meeting of the National Communication Association, Seattle, WA, 2021.\\
+\years{2020}Majdik, Zoltan P., and James Wynn. "Machine/deep Learning of Complex
+Rhetorical Structures in Scientific Discourses: Is it Doable?" Paper presented
+(virtually) at the Annual Meeting of the National Communication Association,
+Baltimore, MD, 2020.\\
+\years{2019}Majdik, Zoltan P. "Computational Approaches to Rhetoric: What are
+they Good for?" Paper presented at the Annual Meeting of the National
+Communication Association, Baltimore, MD, 2019.\\
+\years{2019}Graham, Scott S., Dave Clark, and Zoltan P. Majdik. "Transparency
+to Visibility (T2V): Digital Resistance and the Medical-Industrial Complex."
+Paper presented at Digital Frontiers, Austin, TX, 2019. \textsc{Non-presenting
+author}\\
+\years{2019}Majdik, Zoltan P. "Computing the Grotesque." Paper presented at the
+European Society for Rhetoric's \textit{Rhetoric in Society 7} Conference,
+Gent, Belgium, 2019. \textsc{Competitive paper}\\
+\years{2019}Majdik, Zoltan P. "Replication in the Humanities. (More Why than
+How.)" Presented at the Annual Meeting of the Central States Communication
+Association, Omaha, NE, 2019. \textsc{Panel submission: "Replication: A
+Dialogue about a Necessary Practice in Communication Research"}\\
+\years{2017}Majdik, Zoltan P. "Summary Remarks: On Trust in Science."
+Presented at the Annual ARSTM NCA Preconference, Dallas, TX, 2017.\\
+\years{2015}Majdik, Zoltan P. "Rhetorical Dynamics of Framing Agency and
+Choice in Climate Change Policy Discourse." Paper presented at the Annual
+Meeting of the National Communication Association, Las Vegas, NV, 2015. \textsc{Competitive
+panel}\\
+\years{2015}Majdik, Zoltan P. "Distributed Agency and Disembedded
+Expertise in an Age of Applied Genetics." Paper presented at the Annual ARSTM NCA
+Preconference, Las Vegas, NV, 2015.
+\textsc{Competitive paper}\\
+\years{2014}Majdik, Zoltan P. "How to Make Rhetorical Analyses Salient to
+Practicing Scientists: A Few Suggestions." Paper presented at the Annual
+Meeting of the National Communication Association, Chicago, IL, 2014. \textsc{Panel
+submission: "Who Gets to Show Up and What Should Happen When They Get There?
+Rhetorical Assessments of Normative Models in STEM-Policy Deliberation"}\\
+\years{2013}Platt, Carrie Anne, and Zoltan P. Majdik. "Digital Voices in
+an Age of Artificial Intelligence: IBM's Watson and the Disturbance of
+Traditional Apodictic/Phronetic Sources of Argument." Paper presented at the
+Biennial NCA/AFA Conference on Argumentation, Alta/Snowbird, UT, 2013. \textsc{Competitive
+paper}\\
+\years{2011}Majdik, Zoltan P., and Carrie Anne Platt. "Fight or Flight:
+X-Ray Backscatter Scanning and the Question of Expertise." Paper presented at
+the Annual ARSTM NCA Preconference, New Orleans, LA, 2011. \textsc{Competitive paper}\\
+\years{2011}Majdik, Zoltan P., and Don Waisanen. "The Challenge of
+Institutional Incoherence to the Idea of Reasoned Argument: Argumentation as
+and in Institutional Contexts." Paper presented at the Biennial NCA/AFA
+Conference on Argumentation, Alta/Snowbird, UT, 2011. \textsc{Competitive paper}\\
+\years{2010}Majdik, Zoltan P., and Carrie Anne Platt. "Rhizomic Rhetoric
+in the Key of Aristotle and Vico: Moral Argument in the Institutional Domains
+of Science and Technology.” Paper presented at the Annual Meeting of the
+National Communication Association, San Francisco, CA, 2010. \textsc{Panel
+    submission:
+“Breaking Bridges and Building Networks: Explorations of Rhetorical Agency in
+Chaotic Textual Ecologies”}\\
+\years{2010}Majdik, Zoltan P., and Carrie Anne Platt. "Selling Certainty:
+Genetic Complexity, Moral Urgency, and the Gendered Body in Myriad Genetics'
+BRACAnalysis Campaign." Paper presented at the Annual Meeting of the National
+Communication Association, San Francisco, CA, 2010. \textsc{Competitive paper}\\
+\years{2010}Majdik, Zoltan P. "'Broken Heart' Models and Gaussian
+Copulas: Implications of Vico's View of Mathematics for Rhetorical Criticism."
+Paper presented at the Biennial Meeting of the Rhetoric Society of America,
+Minneapolis, MN, 2010. \textsc{Competitive paper}\\
+\years{2010}Platt, Carrie Anne, Zoltan P. Majdik, and Mark Meister.
+"Spending for a Rainy Day: Latent Polysemy and the Rhetoric of Consumerism in
+Contemporary Weathercasting." Paper presented at the biennial meeting of the
+Rhetoric Society of America, Minneapolis, MN, 2010. \textsc{Competitive paper}\\
+\years{2009}Majdik, Zoltan P. "Looking for Legitimacy: Deficiencies of
+Justification in Direct-to-Consumer Genetics." Paper presented at the Annual
+Meeting of the National Communication Association, Chicago, IL, 2009. \textsc{Competitive
+paper}\\
+\years{2009}Majdik, Zoltan P. "The Myriad Problem(s) of Genetic
+Biotechnology: Problematizing 'Expertise' in Commercial Genetic Biotechnology."
+Paper presented at the Biennial NCA/AFA Conference on Argumentation,
+Alta/Snowbird, UT, 2009. \textsc{Competitive paper}\\
+\years{2008}Majdik, Zoltan P. "Shaking the Genetic Foundation:
+Translating Complex Genetic Science into Everyday Biotechnological Practice."
+Paper presented at the Annual Meeting of the National Communication
+Association, San Diego, CA, 2008. \textsc{Competitive paper}\\
+\years{2007}Majdik, Zoltan P. "Fortuna's Threat: Machiavellian virtù vs.
+the Recalcitrance of an External Reality." Paper presented at the Annual
+Meeting of the National Communication Association, Chicago, IL, 2007. \textsc{Competitive
+paper}\\
+\years{2007}Majdik, Zoltan P. "Between Morality and Ethics: Argument in
+Direct-to-Consumer Genetics." Paper presented at the Biennial NCA/AFA
+Conference on Argumentation, Alta, UT, 2007. \textsc{Competitive paper}\\
+\years{2007}Goodnight, G. Thomas, Zoltan P. Majdik, and John M. Kephart III. Presidential Debates as Public Argument." Paper presented at the NCA/AFA
+Conference on Argumentation, Alta, UT, 2007. \textsc{Competitive paper}\\
+\years{2006}Majdik, Zoltan P. "Mystification v. Mystery: Burke's Poetic
+Rationalization as a Rhetorical Mode of Ethical Action." Paper presented at the
+Annual Meeting of the National Communication Association, San Antonio, TX, 2006.
+\textsc{Competitive paper}\\
+\years{2006}Majdik, Zoltan P. "From Abstraction to Application: On the
+Deliberate Controlling of Controversy in the Human Genome Project." Paper
+presented at the Annual Meeting of the National Communication Association, San
+Antonio, TX, 2006.\\
+\years{2006}Majdik, Zoltan P. "The Virtue of Argument: Discourse Ethics
+as an Axiological Foundation of Informed Consent for Genetic Services." Paper
+presented at the Quadrennial Meeting of the International Society for the Study
+of Argumentation, Amsterdam, 2006. \textsc{Competitive paper}\\
+\years{2005}Majdik, Zoltan P. "To Live or Let Die: A Narrative Ethics
+Approach to Decision-Making in the Terri Schiavo Case." Paper presented at the
+Annual Meeting of the National Communication Association, Boston, MA, 2005.
+\textsc{Competitive paper - Top Student Panel Selection in Ethics}\\
+\years{2005}Majdik, Zoltan P. "Some Serious Fun: Truth-Telling and Comedy
+in Jon Stewart's 'Crossfire' Appearance." Paper presented at the Annual Meeting of
+the National Communication Association, Boston, MA, 2005. \textsc{Competitive paper}\\
+\years{2005}Majdik, Zoltan P. "Powerful Publics: Public Discourse and
+Direct Democracy in Switzerland's 'Yes to Europe!' Referendum." Paper presented
+at the Annual Meeting of the National Communication Association, Boston, MA,
+2005. \textsc{Competitive paper}\\
+\years{2005}Majdik, Zoltan P. "Quo Vadis, Political Debate? Truth-Telling
+Through Comedy In Jon Stewart’s Crossfire Appearance." Paper presented at the
+biennial NCA/AFA Conference on Argumentation, Alta, UT, 2005. \textsc{Competitive
+paper}\\
+\years{2004}Majdik, Zoltan P. "Cross-Cultural Comparison of Speech
+Communication Studies in Europe and the United States." Paper presented at the
+Preconference on the History of Speech Communication at the Annual Meeting of
+the National Communication Association, Chicago, IL, 2004.
+
+
+\subsection*{\textbf{Invited Talks}}
+
+\noindent
+\years{2019}Guest lecture, NDSU BIOL 491\\
+\textsc{Title:} "Communicating Science"\\
+\years{2019}NDSU College of Arts, Humanities, and Social Sciences Research
+Conversations\\
+\textsc{Title:} Poster presentation of current research\\
+\years{2019}Panel presentation, NDSU Graduate Student Council event\\
+\textsc{Title:} "Networking: How to Build Professional Connections\\
+\years{2011}Colloquium presentation, NDSU Communication colloquium series\\
+\years{2009, 2010}Guest lecture, NDSU POLS 115 (American Government)\\
+\textsc{Title:} "Arguing and Argument in Politics"
+
+\section*{Grants}
+
+\noindent
+\years{2023}\textbf{Co-PI}, with Shuning Lu (PI)\\
+\textit{Summer Institute in Computational Social Science -- NDSU\\}
+\textbf{Amount awarded to grant: \$10,700}
+
+\years{2022}\textbf{Co-PI}, with Shuning Lu (PI)\\
+\textit{Summer Institute in Computational Social Science -- NDSU\\}
+Funded by SICSS (with core sponsors: Alfred P. Sloan Foundation, Russell Sage Foundation, Facebook, and SSRC (Social Science Research Council))\\
+\textbf{Amount awarded to grant: \$15,000}
+
+\noindent
+\years{2020-2024}\textbf{MPI (NDSU)}, with S. Scott Graham (Contact MPI, UT-Austin), Justin F. Rousseau (MPI, UT-Austin), \& Joshua Barbour (MPI, UT-Austin)\\
+\textit{A Network Science Approach to Conflicts of Interest: Metrics, Policies, and Communication Design}\\
+Funded by National Institute of General Medical Sciences/National Institutes of Health (NIH)\\
+Award No. R01 GM141476\\ 
+\textbf{Amount awarded to grant: \$832,304}
+
+\noindent
+\years{2020-2022}\textbf{Senior personnel/Lead, Communication \& Dissemination Group}\\
+\textit{NDSU EPSCoR Track-1 (ND-ACES)}\\
+National Science Foundation (NSF EPSCoR Research Infrastructure)\\
+\textbf{Amount awarded to grant: \$20,000,000}
+
+\noindent
+\years{2018-2019}\textbf{Consultant}\\
+Contract paid from National Endowment for the Humanities (NEH) Grant HAA-261070-18\\
+\textit{Transparency to Visibility (T2V): Network
+Visualization in Humanities Research}\\
+PD: Scott Graham, \& co-PD: Dave Clark\\
+Primary consulting responsibility: build computational framework for automated relationship extraction from unstructured text data
+\textbf{Amount awarded to grant: \$80,649}
+
+\noindent
+\years{2016-2019}\textbf{Senior personnel/Lead, Communication \& Dissemination Group}\\
+\textit{NDSU EPSCoR Track-1 (INSPIRE-ND)}\\
+National Science Foundation (NSF EPSCoR Research Infrastructure)\\
+\textbf{Amount awarded to grant: \$20,000,000}
+
+\subsection*{\textbf{Grant applications not funded}}
+
+\noindent
+\years{2019}Co-PI (NDSU PI), with S. Scott Graham (PI, UT-Austin) and Dave Clark (co-PI, University of Wisconsin, Milwaukee)\\
+\textit{Text to Visualization (T2V): Network Modeling with Humanities Data}\\
+National Endowment for the Humanities (NEH)\\
+Amount requested: \$323,184
+
+\noindent
+\years{2013}PI, "The Problem of Citizen Decision-Making In and About
+Politics"\\
+NEH grant proposal, selected by NDSU as one of two proposals to be submitted to
+the NEH Summer Stipend competition. [Not funded.]
+
+
+\section*{Teaching}
+
+\textbf{\textsc{Undergraduate Courses:}}
+
+\noindent
+\begin{itemize}[noitemsep]
+    \item Rhetoric (various foci)
+    \item Persuasion
+    \item Public Speaking
+    \item Data Visualization Across Communication Industries
+    \item Communication Ethics \& Law
+    \item Argumentation \& Advocacy
+    \item Rhetoric of Ideas, Ideology, \& Propaganda
+    \item Communication Criticism
+\end{itemize}
+
+\textbf{\textsc{Graduate Courses:}}
+
+\noindent
+\begin{itemize}[noitemsep]
+    \item Rhetoric (various foci)
+    \item Communication Theory
+\end{itemize}
+
+
+
+\section*{Graduate advising}
+
+\textbf{\textsc{As Advisor:}}
+
+\noindent
+\years{i/p}Wangari Githua\\
+\years{i/p}Melissa Bartels\\
+\years{i/p}Halah Jost-Mahunik\\
+\years{2023}Ian Berry\\
+\years{2022}Ezzat Haider\\
+\textsc{Thesis:} The Use of Rhetorical Frames to Create Hope during Wars and Genocides: The case of the Yezidi Women\\
+\years{2020}Malcolm Jason, Ph.D.\\
+\textsc{Thesis:} A Rhetorical Consideration of Christian Nationalism, Secular Society, and the Need for a Civic Religious Pluralism\\
+\years{2018}Lora Meredith, M.A.\\
+\textsc{Thesis:} Pentadic Analysis of a Wyoming TV Show: The Rhetoric of Scene
+and Agency and Its Impact on Native American
+Communities.\\
+\years{2016}Benjamin Walton, M.A.\\
+\years{2016}Gunther-Michael Jaehnl, M.A.\\
+\years{2014}Keith Bistodeau, M.A.\\
+\textsc{Thesis:} A Historical Perspective Framed Content Analysis Investigation
+of Persuasive Shifts Present in Interstate Oratorical Association Final Round
+Speeches.\\
+\years{2013}Jaishikha Nautiyal, M.A.\\
+\textsc{Thesis:} Rhetorical Agency in the Baghavad Gita\\
+\years{2012}Ramya Chandrasekaran, M.A.\\
+\textsc{Thesis:} The Hindutva Movement: A Burkean Analysis of Violence as
+Retributive Justice\\
+\years{2009}David Chaganava, M.A.\\
+\textsc{Thesis:} Communication Technology and the Changing Face of Rhetorical Persuasion
+in Emerging Democratic Systems: The Case of Georgia.
+
+\textbf{\textsc{As Committee Member:}}\\
+\begin{scriptsize}Note: may be incomplete\end{scriptsize}
+
+\noindent
+\years{i/p}Peter Lindmark\\
+\years{2022}Erik Gustafson, Ph.D.\\
+\years{2019}Curtis Sullivan, Ph.D.\\
+\years{2019}Robert Becker, Ph.D.\\
+\years{2017}Joshua Parcha, Ph.D.\\
+\years{2017}Bryce Tellmann, M.A.\\
+\years{2015}Megan Even, M.A. (English)\\
+\years{2014}Michael Jones, M.A.\\
+\years{2013}Marney Mathiasen, M.A.\\
+\years{2013}Kay Beckerman, M.A.\\
+\years{2013}Jessica Rick, M.S.\\
+\years{2013}Michelle Kramlich, M.S.\\
+\years{2012}Matthew Attansay, Ph.D.\\
+\years{2011}Shelly Stowman, Ph.D.\\
+\years{2010}Najla Ghazi Amundson, Ph.D.\\
+\years{2009}Jennifer Reierson, Ph.D.
+
+\section*{Administrative responsibilities}
+
+\noindent
+\years{2022-present}Public Speaking Course Director,\\
+NDSU Department of Communication
+
+\noindent
+\years{2017-2023}Director of Graduate Studies,\\
+NDSU Department of Communication
+
+
+\section*{Service to the university}
+
+\textbf{\textsc{North Dakota State University}}
+
+\noindent
+\years{2023-present}I.T. council, member\\
+\years{2023-present}Task force on Graduate Health Insurance, co-chair\\
+\years{2021-present}Graduate Council, member\\
+\years{2018-present}Institutional Review Board, vice chair and member\\
+\years{2017}Provost Ad-Hoc Committee on Academic Misconduct, member\\
+\years{2016}Special Grievance Committee, chair\\
+\years{2014-2018}Institutional Review Board, member\\
+\years{2013-2014}Institutional Review Board, alternate\\
+\years{2013-2014}Diversity Committee, member\\
+\years{2011, 2012}NDSU Graduate Methods Conference, co-organizer
+
+\textbf{\textsc{NDSU College of Arts and Sciences}}
+
+\noindent
+\years{2023}Task force on Graduate Tuition Waivers, chair
+
+\textbf{\textsc{NDSU College of Arts, Humanities, and Social Sciences}}
+
+\noindent
+\years{2019-2022}Promotion and Tenure Committee, member\\
+\years{2016-2017}Budget Advisory Group, member\\
+\years{2015-2016}Promotion and Tenure Committee, member\\
+\years{2014}Search Committee (Director for International Studies), member\\
+\years{2012-2013}Curriculum Committee, member
+
+\textbf{\textsc{NDSU Department of Communication}}
+
+\noindent
+\years{2022}Search Committee, member\\
+\years{2017-2018}Promotion and Tenure Committee, member\\
+\years{2016-2017}Promotion and Tenure Committee, chair\\
+\years{2012-present}Graduate Committee, member and chair (since 2017)\\
+\years{2015}Search Committee (tenure-line), chair\\
+\years{2014-present}Curriculum Committee, member\\
+\years{2013-2014}Scholarship and Awards Committee\\
+\years{2011-2012}Curriculum Committee, chair\\
+\years{2011-2012}Search Committee (tenure-line), member\\
+\years{2010-2011}Assessment Committee, co-chair\\
+\years{2010-2011}DCE Committee, member\\
+\years{2009-2016}Lambda Pi Eta Communication Honors Society, advisor\\
+\years{2009-2010}Graduate Committee, member\\
+\years{2009-2010}Scholarship and Awards Committee, member\\
+\years{2008-2009}Search Committee (tenure-line), member
+
+\section*{Service to the profession}
+
+\textbf{\textsc{Editorial Work}}
+
+\noindent
+\years{2016-2017}Editorial board member, \textit{CSTAND}\\
+\years{2012-2013}Editorial consultant, \textit{Communication Studies}\\
+\years{est. 2007}Editorial graduate assistant, \textit{Argumentation \& Advocacy}
+
+\textbf{\textsc{Reviewing, ad hoc}}
+
+\noindent
+Argumentation \& Advocacy\\
+Behavior Research Methods\\
+Communication Studies\\
+Communication Theory\\
+CSTAND\\
+European Journal of Cultural and Political Sociology\\
+Informal Logic\\
+National Science Foundation (STS program)\\
+Social Epistemology\\
+Rhetoric \& Public Affairs\\
+Rhetoric of Health \& Medicine\\
+Rhetoric Society Quarterly \\
+Technical Communication Quarterly \\
+World Medical \& Health Policy \\
+Written Communication
+
+\textbf{\textsc{Reviewing, Conferences}}
+
+\noindent
+NCA, Association for the Rhetoric of Science, Technology, and Medicine
+(ARSTM)\\
+ARSTM, Preconferences at NCA, RSA
+
+\textbf{\textsc{Other}}
+
+\noindent
+\years{2020-2022}NCA Doctoral Education Committee \\
+\years{2018}President, Association for the Rhetoric of Science, Technology, \& Medicine (ARSTM)
+
+
+
+%\vspace{1cm}
+\vfill{}
+%\hrulefill
+
+\begin{center}
+{\scriptsize  Last updated: \today\- •\- 
+% ---- PLEASE LEAVE THIS BACKLINK FOR ATTRIBUTION AS PER CC-LICENSE
+Typeset in \href{http://nitens.org/taraborelli/cvtex}{\fontspec{Linux Libertine O}\XeTeX }\\
+% ---- FILL IN THE FULL URL TO YOUR CV HERE
+\href{http://www.zoltanmajdik.com/cv.pdf}{http://www.zoltanmajdik.com/cv.pdf}}
+\end{center}
+
+\end{document}
