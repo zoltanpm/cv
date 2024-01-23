@@ -11,11 +11,3 @@ jobs:
         with:
           root_file: curriculum_vitae.tex
           latexmk_use_xelatex: true
-      - name: Upload a build artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDF
-          path: curriculum_vitae.pdf
-      - uses: actions/download-artifact@v4
-        with:
-          name: curriculum_vitae.pdf
