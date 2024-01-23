@@ -18,4 +18,4 @@ jobs:
           path: curriculum_vitae.pdf
       - uses: actions/download-artifact@v4
         with:
-          name: PDF
+          name: curriculum_vitae.pdf
