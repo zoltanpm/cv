@@ -1,16 +1,4 @@
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-name: Build PDF
+name: Build LaTeX document
 on: [push]
 jobs:
   build_latex:
@@ -19,15 +7,22 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: curriculum_vitae.tex
-          latexmk_use_xelatex: true
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v4
         with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: PDF
+          path: curriculum_vitae.pdf
+      - name: Check pdf file
+        run: |
+          file curriculum_vitae.pdf | grep -q ' PDF '
+      - name: Upload file to repository
+        run: |
+          git config --global user.name "zoltanpm"
+          git config --global user.email "zpm@zoltanpm.com"
+          git add curriculum_vitae.pdf
+          git commit -m "update cv pdf file"
+          git push
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
