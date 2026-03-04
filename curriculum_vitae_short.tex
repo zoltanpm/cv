@@ -1,0 +1,271 @@
+% !TEX program = xelatex
+% CV adapted from:
+
+%
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+% Some rights reserved: http://creativecommons.org/licenses/by-sa/3.0/
+%------------------------------------
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec}
+\usepackage{libertine}
+\usepackage[english]{babel}
+
+% DOCUMENT LAYOUT
+\usepackage{geometry} 
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+\usepackage{enumitem}
+
+% FONTS
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont [Ligatures={Common}, Numbers={OldStyle}, Variant=01]{Linux Libertine O}
+%\setmonofont[Scale=0.8]{Monaco}
+
+% ---- CUSTOM COMMANDS
+\chardef\&="E050
+\newcommand{\html}[1]{\href{#1}{\scriptsize\textsc{[html]}}}
+\newcommand{\pdf}[1]{\href{#1}{\scriptsize\textsc{[pdf]}}}
+\newcommand{\doi}[1]{\href{#1}{\scriptsize\textsc{[doi]}}}
+% ---- MARGIN YEARS
+\usepackage{marginnote}
+\newcommand{\amper{}}{\chardef\amper="E0BD }
+\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
+\renewcommand*{\raggedleftmarginnote}{}
+\setlength{\marginparsep}{7pt}
+\reversemarginpar
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\mdseries\upshape\Large}
+\subsectionfont{\bfseries\scshape\normalsize} 
+\subsubsectionfont{\mdseries\upshape\large} 
+
+
+%
+%------------------------------------
+% Bibliography section adapted from:
+% https://github.com/rgeirhos/academic-cv-publications
+%------------------------------------
+
+% as bibentry and hyperref clash in some cases, this is a workaround
+% as suggested by the following two links:
+%https://tex.stackexchange.com/questions/227933/using-bibentry-to-cite-in-text-reference-with-apacite
+% and
+%https://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv/65401#65401
+
+\usepackage[style=apa, backend=biber]{biblatex}
+\DeclareCiteCommand{\fullcite}
+  {\usebibmacro{prenote}}
+  {\usedriver
+     {}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\usepackage{csquotes}
+\bibliography{zoltanpm_research.bib}
+\AtEveryCitekey{\clearfield{extradate}}
+\AtEveryBibitem{\clearfield{extradate}}
+
+%\usepackage{bibentry}
+%\makeatletter\let\saved@bibitem\@bibitem\makeatother
+%\usepackage[colorlinks=true]{hyperref}
+%\makeatletter\let\@bibitem\saved@bibitem\makeatother
+
+% hanging publications: 1st line starts at beginning of line, 
+% further lines are placed a bit to the right
+\usepackage{hanging}
+\newcommand\publication[1]{%
+    \smallskip\par\hangpara{1.5em}{1}\fullcite{#1}\smallskip
+}
+
+\usepackage{parskip}
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\usepackage[unicode, bookmarks, colorlinks, breaklinks, 
+% ---- FILL IN HERE THE TITLE AND AUTHOR
+pdftitle={cv},
+    pdfauthor={Zoltan P. Majdik},
+    pdfproducer={http://nitens.org/taraborelli/cvtex}
+]{hyperref} 
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=MidnightBlue} 
+
+
+% DOCUMENT
+\begin{document}
+
+{\LARGE Zoltan P. Majdik}\\[1cm]
+ North Dakota State University\\
+Department of Communication\\
+Fargo, N.D. 58102\\
+U.S.A.\\[.2cm]
+\textsc{email:} zoltan.majdik@ndsu.edu\\
+\textsc{ORCID:} \href{https://orcid.org/0000-0002-3851-4694}{https://orcid.org/0000-0002-3851-4694}\\
+\textsc{RG:} \href{https://www.researchgate.net/profile/Zoltan-Majdik}{https://www.researchgate.net/profile/Zoltan-Majdik}
+
+%%\hrule
+\section*{Current Position}
+
+\noindent
+\years{2023-present}Professor, Department of Communication, North Dakota State University
+
+
+%%\hrule
+\section*{Areas of Specialization}
+Computational Rhetoric • Language Modeling • Deep Learning \& AI
+
+%\hrule
+\section*{Education}
+\noindent
+\years{2008}Ph.D. in Communication, Annenberg School for Communication
+and Journalism, University of
+Southern California \\ 
+\textsc{Dissertation:} The Gene is out of the Bottle: The Communication of Genetic
+Complexity in Direct-to-Consumer Genetics\\
+\years{2006}M.A. in Communication, Annenberg School for Communication
+and Journalism, University of
+Southern California\\
+\years{2003}B.A. in Communication and in English, University of
+Southern California
+
+
+\section*{Select Publications}
+
+
+\noindent
+\years{2025}\fullcite{graham.etal2025a}\\
+\years{2024}\fullcite{yang.majdik2024}\\
+\years{2024}\fullcite{majdik.etal2024}\\
+\years{2024}\fullcite{graham.etal2024a}\\
+\years{2023}\fullcite{majdikwynn2023}\\
+\years{2022}\fullcite{grahametal2022}\\
+\years{2021}\fullcite{grahametal2021}\\
+\years{2020}\fullcite{majdik2021}\\
+\years{2020}\fullcite{duchshereretal2020}\\
+\years{2020}\fullcite{grahametal2020}\\
+\years{2019}\fullcite{majdik2019}
+
+
+\section*{Select Grants}
+
+
+\years{2022}\textbf{Co-PI}, with Shuning Lu (PI)\\
+\textit{Summer Institute in Computational Social Science -- NDSU\\}
+Funded by SICSS (with core sponsors: Alfred P. Sloan Foundation, Russell Sage Foundation, Facebook, and SSRC (Social Science Research Council))\\
+\textbf{Amount awarded to grant: \$15,000}
+
+\noindent
+\years{2020-2024}\textbf{MPI (NDSU)}, with S. Scott Graham (Contact MPI, UT-Austin), Justin F. Rousseau (MPI, UT-Austin), \& Joshua Barbour (MPI, UT-Austin)\\
+\textit{A Network Science Approach to Conflicts of Interest: Metrics, Policies, and Communication Design}\\
+Funded by National Institute of General Medical Sciences/National Institutes of Health (NIH)\\
+Award No. R01 GM141476\\ 
+\textbf{Amount awarded to grant: \$832,304}
+
+\noindent
+\years{2020-2022}\textbf{Senior personnel/Lead, Communication \& Dissemination Group}\\
+\textit{NDSU EPSCoR Track-1 (ND-ACES)}\\
+National Science Foundation (NSF EPSCoR Research Infrastructure)\\
+\textbf{Amount awarded to grant: \$20,000,000}
+
+
+\section*{Consulting}
+
+\noindent
+\years{2024-present}\textbf{Consultant | Center for Public Health Research @ Temple University School of Law.}\\
+Primary consulting responsibility: advice and implementation assistance for development of AI/LLM-driven tool in the Monqcle legal research platform.
+
+
+\noindent
+\years{2018-2019}\textbf{Consultant | Contract paid from National Endowment for the Humanities (NEH) Grant HAA-261070-18}\\
+\textit{Transparency to Visibility (T2V): Network
+Visualization in Humanities Research}\\
+PD: Scott Graham, \& co-PD: Dave Clark\\
+Primary consulting responsibility: build computational framework for automated relationship extraction from unstructured text data.\\
+\textbf{Amount awarded to grant: \$80,649}
+
+
+\section*{Teaching}
+
+\noindent
+\begin{itemize}[noitemsep]
+    \item Rhetoric (various foci)
+    \item Persuasion
+    \item Public Speaking
+    \item Data Visualization Across Communication Industries
+    \item Communication Ethics \& Law
+    \item Argumentation \& Advocacy
+    \item Rhetoric of Ideas, Ideology, \& Propaganda
+    \item Communication Criticism
+\end{itemize}
+
+
+
+
+\section*{Select Service to North Dakota State University/State of ND}
+
+\noindent
+\years{2025}Co-creator, Human Factors in Artificial Intelligence Certificate\\
+\years{2024-present}AI research group, co-chair\\
+\years{2023-present}I.T. council, member\\
+\years{2018-present}Institutional Review Board, vice chair and member\\
+\years{2023-2024}Task force on Graduate Health Insurance, co-chair\\
+\years{2023}Task force on Graduate Tuition Waivers, chair
+\years{2021-2024}Graduate Council, member\\
+\years{2017}Provost Ad-Hoc Committee on Academic Misconduct, member\\
+\years{2016}Special Grievance Committee, chair\\
+
+
+
+\section*{Select Service to the Profession}
+
+\textbf{\textsc{Editorial Work}}
+
+\noindent
+\years{2025-present}Editorial board member, \textit{Review of Communication}\\
+\years{2024}Guest editor (with S. Scott Graham), \textit{RSQ Special Issue on Rhetoric \& AI}\\
+\years{2016-2017}Editorial board member, \textit{CSTAND}\\
+
+
+\textbf{\textsc{Other}}
+
+\noindent
+\years{2025-present}Steering committee | RhetAI coalition\\
+\years{2024-present}Co-Director | NDSU Center for the Study of Digital Society\\
+\years{2020-2022}NCA Doctoral Education Committee \\
+\years{2018}President | Association for the Rhetoric of Science, Technology, \& Medicine (ARSTM)
+
+
+\vspace{2.5cm}
+
+\begin{center}
+\textbf{Full CV available upon request}
+\end{center}
+
+%\vspace{1cm}
+\vfill{}
+%\hrulefill
+
+\begin{center}
+{\scriptsize  Last updated: \today\- •\- 
+% ---- PLEASE LEAVE THIS BACKLINK FOR ATTRIBUTION AS PER CC-LICENSE
+Typeset in \href{http://nitens.org/taraborelli/cvtex}{\fontspec{Linux Libertine O}\XeTeX }\\
+% ---- FILL IN THE FULL URL TO YOUR CV HERE
+\href{http://www.zoltanmajdik.com/cv.pdf}{http://www.zoltanmajdik.com/cv.pdf}}
+\end{center}
+
+\end{document}
